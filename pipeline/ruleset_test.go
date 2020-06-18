@@ -404,6 +404,12 @@ func TestPipeline_Rules_Match(t *testing.T) {
 			operator: "or",
 			want:     false,
 		},
+		{
+			rules:    &Rules{Event: []string{"pull_request"}, Branch: []string{"master"}},
+			data:     &RuleData{Branch: "dev", Event: "push", Repo: "octocat/hello-world", Status: "pending"},
+			operator: "or",
+			want:     false,
+		},
 	}
 
 	// run test

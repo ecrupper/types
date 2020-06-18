@@ -405,6 +405,26 @@ func TestPipeline_Container_Execute(t *testing.T) {
 			},
 			want: true,
 		},
+		{ // status unless success container with build success
+			container: &Container{
+				Name:     "branch event or",
+				Image:    "alpine:latest",
+				Commands: []string{"echo \"Hey Vela\""},
+				Ruleset: Ruleset{
+					If: Rules{
+						Branch: []string{"master"},
+						Event:  []string{constants.EventPull},
+					},
+					Operator: "or",
+				},
+			},
+			ruleData: &RuleData{
+				Branch: "dev",
+				Event:  "push",
+				Repo:   "foo/bar",
+			},
+			want: false,
+		},
 	}
 
 	// run tests

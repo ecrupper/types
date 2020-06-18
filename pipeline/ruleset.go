@@ -5,7 +5,6 @@
 package pipeline
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -121,7 +120,6 @@ func (r *Rules) Empty() bool {
 func (r *Rules) Match(from *RuleData, op string) bool {
 	// set defaults
 	status := true
-	fmt.Println("---Matching---")
 	// if the path ruletype is provided
 	if len(from.Path) > 0 {
 		// if the "or" operator is provided in the ruleset
