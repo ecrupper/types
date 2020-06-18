@@ -120,6 +120,9 @@ func (r *Rules) Empty() bool {
 // both operators, when none of the ruletypes from the rules
 // match the provided ruledata, the function returns false.
 func (r *Rules) Match(from *RuleData, op string) bool {
+	fmt.Println("--matching--")
+	log.Print("--matching--")
+	return false
 	// set defaults
 	status := true
 	// if the path ruletype is provided
