@@ -5,6 +5,8 @@
 package pipeline
 
 import (
+	"fmt"
+	"log"
 	"regexp"
 	"strings"
 )
@@ -177,6 +179,9 @@ func (r *Rules) Match(from *RuleData, op string) bool {
 
 	// if the "or" operator is provided in the ruleset
 	if strings.EqualFold(op, "or") {
+		fmt.Println("or operator")
+		log.Print("or operator")
+		return false
 		// override the default to the "or"
 		if len(from.Status) != 0 {
 			status = r.Status.MatchOr(from.Status)
