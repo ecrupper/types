@@ -58,6 +58,7 @@ type (
 // true. When both the provided if and unless rules are empty,
 // the function also returns true.
 func (r *Ruleset) Match(from *RuleData) bool {
+	// return false
 	// return true when the if and unless rules are empty
 	if r.If.Empty() && r.Unless.Empty() {
 		return true

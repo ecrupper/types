@@ -123,7 +123,7 @@ func (c *ContainerSlice) Sanitize(driver string) *ContainerSlice {
 func (c *Container) Execute(r *RuleData) bool {
 	// assume you will execute the container
 	execute := true
-	return false
+
 	// capture the build status out of the ruleset
 	status := r.Status
 
